@@ -24,41 +24,46 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-blue-900 text-white overflow-hidden relative">
-      <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
-        <Quote className="w-96 h-96 -translate-y-24 translate-x-24" />
-      </div>
-      
+    <section className="py-24 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-black mb-4">Confianza que cruza ríos</h2>
-          <p className="text-blue-200 text-lg font-medium">Lo que dicen los emprendedores que ya optimizaron su logística.</p>
+        <div className="mb-16 text-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-blue-950 mb-4 tracking-tight text-center">Confianza que cruza ríos</h2>
+          <p className="text-slate-600 text-lg font-medium max-w-2xl mx-auto">Lo que dicen los comerciantes locales sobre nuestra plataforma.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-3xl"
+              className="bg-blue-900 text-white p-8 rounded-2xl shadow-xl shadow-blue-900/10 flex flex-col justify-between"
             >
-              <div className="flex items-center gap-4 mb-6">
+              <div>
+                <div className="flex justify-between items-center mb-6">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-blue-300">Testimonio</h4>
+                  <div className="flex gap-1">
+                    <span className="text-orange-400 font-bold text-xs">★★★★★</span>
+                  </div>
+                </div>
+                <p className="text-blue-50 italic leading-relaxed font-medium mb-8">
+                  "{t.text}"
+                </p>
+              </div>
+              
+              <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/10">
                 <img 
                   src={t.image} 
                   alt={t.name} 
-                  className="w-12 h-12 rounded-full border-2 border-orange-500"
+                  className="w-10 h-10 rounded-full border-2 border-orange-500 shadow-sm"
                   referrerPolicy="no-referrer"
                 />
                 <div>
-                  <h4 className="font-bold text-white leading-tight">{t.name}</h4>
-                  <p className="text-xs text-blue-300 font-medium">{t.role}</p>
+                  <h4 className="font-bold text-white leading-tight text-sm">{t.name}</h4>
+                  <p className="text-[10px] text-blue-200 font-semibold uppercase tracking-wider">{t.role}</p>
                 </div>
               </div>
-              <p className="text-blue-50 italic leading-relaxed font-medium">
-                "{t.text}"
-              </p>
             </motion.div>
           ))}
         </div>
