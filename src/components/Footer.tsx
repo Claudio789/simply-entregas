@@ -1,6 +1,10 @@
 import { Truck, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 
-export default function Footer() {
+interface FooterProps {
+  onOpenDriverForm: () => void;
+}
+
+export default function Footer({ onOpenDriverForm }: FooterProps) {
   return (
     <footer className="bg-white border-t border-slate-200 pt-16 pb-10">
       <div className="max-w-7xl mx-auto px-4">
@@ -19,9 +23,15 @@ export default function Footer() {
           
           <div className="md:col-span-3">
             <h4 className="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">¿Dónde entregamos?</h4>
-            <p className="text-slate-500 font-medium text-sm leading-relaxed">
+            <p className="text-slate-500 font-medium text-sm leading-relaxed mb-4">
               Isla Teja, Las Ánimas, Collico, Angachilla y todo el centro de Valdivia.
             </p>
+            <button 
+              onClick={onOpenDriverForm}
+              className="text-blue-600 font-bold text-sm hover:underline flex items-center gap-1"
+            >
+              ¡Únete como repartidor!
+            </button>
           </div>
 
           <div className="md:col-span-3 text-right md:text-left">
